@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Dice</title>
+    <style type="text/css">
+      .dice {
+        font-weight: bold;
+        font-size: 40px;
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        text-align: center;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h1>Dice Roll Game</h1>
+      <input id="dice" class="dice" type="number" value="1" readonly><br>
+      <button id="rollButton">roll</button>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+      <script type="text/javascript">
+        function rollDie() {
+          return Math.floor(Math.random()*6 + 1);
+        };
+        $("#rollButton").on("click", function() {
+          var val = rollDie();
+          $("#dice").val(val);
+        });
+      </script>
+    </article>
+  </body>
+</html>
