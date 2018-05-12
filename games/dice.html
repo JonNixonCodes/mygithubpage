@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Dice</title>
+    <style type="text/css">
+      .dice {
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        margin: 10px;
+      }
+      .button {
+        padding: 5px;
+        text-align: center;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h1>Dice Roll Game</h1>
+      <img id="diceImg" class="dice" src="../img/dice_1.png" alt="" width="50px" height="50px"><br>
+      <button id="rollButton" class="button">roll</button>
+    </article>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script type="text/javascript">
+      function rollDie() {
+        return Math.floor(Math.random()*6 + 1);
+      };
+      $("#rollButton").on("click", function() {
+        var val = rollDie();
+        img_url = "..//img//dice_"+ val + ".png";
+        document.getElementById("diceImg").src = img_url;
+      });
+    </script>
+  </body>
+</html>

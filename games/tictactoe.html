@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Tic-Tac-Toe</title>
+    <style type="text/css">
+      .grid-button {
+        font-weight: bold;
+        font-size: 30px;
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        text-align: center;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+      <h1>Tic-Tac-Toe</h1>
+      <div id="row0">
+        <input type="button" id="grid[0]" class="grid-button" value=" "/>
+        <input type="button" id="grid[1]" class="grid-button" value=" "/>
+        <input type="button" id="grid[2]" class="grid-button" value=" "/>
+      </div>
+      <div id="row1">
+        <input type="button" id="grid[3]" class="grid-button" value=" "/>
+        <input type="button" id="grid[4]" class="grid-button" value=" "/>
+        <input type="button" id="grid[5]" class="grid-button" value=" "/>
+      </div>
+      <div id="row2">
+        <input type="button" id="grid[6]" class="grid-button" value=" "/>
+        <input type="button" id="grid[7]" class="grid-button" value=" "/>
+        <input type="button" id="grid[8]" class="grid-button" value=" "/>
+      </div>
+      <div id=results></div>
+    </article>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script type="text/javascript">
+      var gridValues = [null, null, null,
+                        null, null, null,
+                        null, null, null];
+
+      function updateGrid(index, value) {
+        //console.log(index);
+        var val = null;
+        if (value == "X") {
+          val = 1;
+        } else if (value == "O") {
+          val = 0;
+        }
+        gridValues[index] = val;
+        ($(".grid-button").eq(index)).val(value);
+      };
+
+      function isLine() {
+
+      };
+
+      function isTouching(i, j) {
+        //get x, y coordinates of i and j
+        i_y = parseInt(i/3);
+        i_x = i - 3*i_y;
+        j_y = parseInt(j/3);
+        j_x = j - 3*j_y;
+        
+      };
+
+      $(".grid-button").on("click", function() {
+        var index = $(".grid-button").index($(this));
+        var gridVal = $(this).val();
+        if (gridVal == "X") {
+          //$(this).val("O");
+          updateGrid(index, "O");
+        } else {
+          //$(this).val("X");
+          updateGrid(index, "X");
+        }
+        console.log(gridValues);
+      });
+    </script>
+  </body>
+</html>
